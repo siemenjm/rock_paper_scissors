@@ -8,8 +8,9 @@
   <header>Rock, Paper, Scissors!</header>
   <main>
     <div id="scores">
+
       <div id="your-score">
-        <h1 class="competitor" id="you">You</h1>
+        <h2 class="competitor" id="you">You</h2>
         <div class="record" id="you">
           <div class="wins" id="you">
             <p class="outcome" id="you">W</p>
@@ -25,8 +26,36 @@
           </div>
         </div>
       </div>
+
+      <div id="rounds-remaining">
+        <h1 id="rounds">Rounds Remaining</h1>
+        <p id="rounds-number">5</p>
+      </div>
+
+      <div id="computer-score">
+        <h2 class="competitor" id="computer">Computer</h2>
+        <div class="record" id="computer">
+          <div class="wins" id="computer">
+            <p class="outcome" id="computer">W</p>
+            <p class="number" id="computer">0</p>
+          </div>
+          <div class="loses" id="computer">
+            <p class="outcome" id="computer">L</p>
+            <p class="number" id="computer">0</p>
+          </div>
+          <div class="ties" id="computer">
+            <p class="outcome" id="computer">T</p>
+            <p class="number" id="computer">0</p>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <div id="faceoff">
+      <img src="" alt="Your play" id="your-img">
+      <p id="faceoff-message">Placeholder message</p>
+      <img src="" alt="Computer play" id="computer-img">
+    </div>
 
     <div id="button-group">
       <button class="btn" id="rock">Rock</button>
