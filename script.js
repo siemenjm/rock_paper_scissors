@@ -58,6 +58,7 @@ function playRound(playerSelection, computerSelection) {
     changePicture(computerImage, computerSelection);
 
     roundsRemaining--;
+    roundsLeft.textContent = roundsRemaining;
 }
 
 // changePicture changes the picture, duh, based on the player/computer choice when a button is clicked
@@ -83,6 +84,7 @@ function game() {
     scissorsBtn.addEventListener('click', function(){playRound('Scissors', computerPlay())});
 }
 
+const roundsLeft = document.querySelector('#rounds-number');
 const outcomeMessage = document.querySelector('#outcome-message');
 const playerImage = document.querySelector('#your-img');
 const computerImage = document.querySelector('#computer-img');
