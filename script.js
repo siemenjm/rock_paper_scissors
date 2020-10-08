@@ -23,30 +23,28 @@ function computerPlay() {
 // user input can be case insensitive
     
 function playRound(playerSelection, computerSelection) {
-    let playerCapitalized = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
-    let computerCapitalized = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1).toLowerCase();
 
-    if (playerCapitalized === computerCapitalized) {
-        console.log("It's a Tie! " + playerCapitalized + " ties " + computerCapitalized + ".");
-        return "Tie";
-    } else if (playerCapitalized === "Rock" && computerCapitalized === "Paper") {
+    if (playerSelection === computerSelection) {
+        console.log("It's a Tie! " + playerSelection + " ties " + computerSelection + ".");
+        
+    } else if (playerSelection === "Rock" && computerSelection === "Paper") {
         console.log("You Lose... Paper covers Rock.");
-        return "Lose";
-    } else if (playerCapitalized === "Rock" && computerCapitalized === "Scissors") {
+        
+    } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
         console.log("You Win! Rock smashes Scissors!");
-        return "Win";
-    } else if (playerCapitalized === "Paper" && computerCapitalized === "Rock") {
+        
+    } else if (playerSelection === "Paper" && computerSelection === "Rock") {
         console.log("You Win! Paper covers Rock!");
-        return "Win";
-    } else if (playerCapitalized === "Paper" && computerCapitalized === "Scissors") {
+        
+    } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
         console.log("You Lose... Scissors cut paper.");
-        return "Lose";
-    } else if (playerCapitalized === "Scissors" && computerCapitalized === "Rock") {
+        
+    } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
         console.log("You Lose... Rock smashes Scissors.");
-        return "Lose";
-    } else if (playerCapitalized === "Scissors" && computerCapitalized === "Paper") {
+        
+    } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
         console.log("You Win! Scissors cut paper!");
-        return "Win";
+        
     }
 }
   
@@ -54,36 +52,16 @@ function playRound(playerSelection, computerSelection) {
 // while the amount of rounds played is less than or equal to 5, call playRound
 // keeps track of winner and loser of each round
 // outputs a winner and a loser string, along with the score 
-  
+
 function game() {
-    let playerWins = 0;
-    let playerLosses = 0;
-    let ties = 0;
+    const rockBtn = document.querySelector('#rock');
+    const paperBtn = document.querySelector('#paper');
+    const scissorsBtn = document.querySelector('#scissors');
+    let roundsRemaining = 5;
 
-    let roundsPlayed = 0;
-    while (roundsPlayed < 5) {
-        let playerChoice = prompt("Choose Rock, Paper, or Scissors.", "You didn't choose!")
-        let computerChoice = computerPlay();
-
-        let outcome = playRound(playerChoice, computerChoice);
-
-        if (outcome === "Win") {
-        playerWins++;
-        } else if (outcome === "Lose") {
-        playerLosses++;
-        } else {
-        ties++;
-        }
-
-        roundsPlayed++;
-    }
-  
-    if (playerWins > playerLosses) {
-        console.log("You Won with a score of " + playerWins + " wins, " + playerLosses + " losses, and " + ties + " ties!");
-    } else if (playerWins < playerLosses) {
-        console.log("You Lost with a score of " + playerWins + " wins, " + playerLosses + " losses, and " + ties + " ties...");
-    } else {
-        console.log("You Tied with a score of " + playerWins + " wins, " + playerLosses + " losses, and " + ties + " ties.");
-    }
-
+    rockBtn.addEventListener('click', function(){playRound('Rock', computerPlay())});
+    paperBtn.addEventListener('click', function(){playRound('Paper', computerPlay())});
+    scissorsBtn.addEventListener('click', function(){playRound('Scissors', computerPlay())});
 }
+
+game();
