@@ -38,24 +38,26 @@ function playRound(playerSelection, computerSelection) {
         playerWins++;
     } else if (playerSelection === "Paper" && computerSelection === "Rock") {
         console.log("You Win! Paper covers Rock!");
-        outcomeMessage.textContent = 'You Win! Rock smashes Scissors!';
+        outcomeMessage.textContent = 'You Win! Paper covers Rock!';
         playerWins++;
     } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
         console.log("You Lose... Scissors cut paper.");
-        outcomeMessage.textContent = 'You Lose... Paper covers Rock...';
+        outcomeMessage.textContent = 'You Lose... Scissors cut Paper...';
         playerLosses++;
     } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
         console.log("You Lose... Rock smashes Scissors.");
-        outcomeMessage.textContent = 'You Lose... Paper covers Rock...';
+        outcomeMessage.textContent = 'You Lose... Rock smashes Scissors...';
         playerLosses++;
     } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
         console.log("You Win! Scissors cut paper!");
-        outcomeMessage.textContent = 'You Win! Rock smashes Scissors!';
+        outcomeMessage.textContent = 'You Win! Scissors cut Paper!';
         playerWins++;
     }
 
     changePicture(playerImage, playerSelection);
     changePicture(computerImage, computerSelection);
+
+    changeRecord(playerWins, playerLosses, playerTies);
 
     roundsRemaining--;
     roundsLeft.textContent = roundsRemaining;
@@ -72,6 +74,18 @@ function changePicture(element, selection) {
         element.src = 'pics/scissors.jpg';
     }
 }
+
+// changeRecord updates the scoreboard
+
+function changeRecord(wins, losses, ties) {
+    yourWins.textContent = wins;
+    yourLosses.textContent = losses;
+    yourTies.textContent = ties;
+
+    computerWins.textContent = losses;
+    computerLosses.textContent = wins;
+    computerTies.textContent = ties;
+}
   
 // game function that plays 5 round game and keeps score
 // while the amount of rounds played is less than or equal to 5, call playRound
@@ -85,6 +99,12 @@ function game() {
 }
 
 const roundsLeft = document.querySelector('#rounds-number');
+const yourWins = document.querySelector('#your-wins');
+const yourLosses = document.querySelector('#your-losses');
+const yourTies = document.querySelector('#your-ties');
+const computerWins = document.querySelector('#computer-wins');
+const computerLosses = document.querySelector('#computer-losses');
+const computerTies = document.querySelector('#computer-ties');
 const outcomeMessage = document.querySelector('#outcome-message');
 const playerImage = document.querySelector('#your-img');
 const computerImage = document.querySelector('#computer-img');
