@@ -17,7 +17,7 @@
             <p class="outcome" id="you">W</p>
             <p class="number" id="you">0</p>
           </div>
-          <div class="loses" id="you">
+          <div class="losses" id="you">
             <p class="outcome" id="you">L</p>
             <p class="number" id="you">0</p>
           </div>
@@ -40,7 +40,7 @@
             <p class="outcome" id="computer">W</p>
             <p class="number" id="computer">0</p>
           </div>
-          <div class="loses" id="computer">
+          <div class="losses" id="computer">
             <p class="outcome" id="computer">L</p>
             <p class="number" id="computer">0</p>
           </div>
@@ -53,16 +53,18 @@
     </div>
 
     <div id="faceoff">
-      <img src="" alt="Your play" id="your-img">
-      <p id="faceoff-message">Placeholder message</p>
-      <img src="" alt="Computer play" id="computer-img">
+      <img src="pics/rock.jpg" alt="Your play" id="your-img">
+      <div id="choices">
+        <p id="faceoff-message">Placeholder message</p>
+        <div id="button-group">
+          <button class="btn" id="rock">Rock</button>
+          <button class="btn" id="paper">Paper</button>
+          <button class="btn" id="paper">Scissors</button>
+        </div>
+      </div>
+      <img src="pics/paper.jpg" alt="Computer play" id="computer-img">
     </div>
 
-    <div id="button-group">
-      <button class="btn" id="rock">Rock</button>
-      <button class="btn" id="paper">Paper</button>
-      <button class="btn" id="paper">Scissors</button>
-    </div>
   </main>
 
   <script src="script.js"></script>
