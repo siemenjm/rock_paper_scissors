@@ -25,31 +25,24 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === computerSelection) {
-        console.log("It's a Tie! " + playerSelection + " ties " + computerSelection + ".");
         outcomeMessage.textContent = 'It\'s a Tie! ' + playerSelection + ' ties ' + computerSelection + '!';
         playerTies++;
     } else if (playerSelection === "Rock" && computerSelection === "Paper") {
-        console.log("You Lose... Paper covers Rock.");
         outcomeMessage.textContent = 'You Lose... Paper covers Rock...';
         playerLosses++;   
     } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-        console.log("You Win! Rock smashes Scissors!");
         outcomeMessage.textContent = 'You Win! Rock smashes Scissors!';
         playerWins++;
     } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-        console.log("You Win! Paper covers Rock!");
         outcomeMessage.textContent = 'You Win! Paper covers Rock!';
         playerWins++;
     } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-        console.log("You Lose... Scissors cut paper.");
         outcomeMessage.textContent = 'You Lose... Scissors cut Paper...';
         playerLosses++;
     } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-        console.log("You Lose... Rock smashes Scissors.");
         outcomeMessage.textContent = 'You Lose... Rock smashes Scissors...';
         playerLosses++;
     } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-        console.log("You Win! Scissors cut paper!");
         outcomeMessage.textContent = 'You Win! Scissors cut Paper!';
         playerWins++;
     }
