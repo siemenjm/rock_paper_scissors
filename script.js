@@ -24,27 +24,30 @@ function computerPlay() {
     
 function playRound(playerSelection, computerSelection) {
 
-    if (playerSelection === computerSelection) {
-        outcomeMessage.textContent = 'It\'s a Tie! ' + playerSelection + ' ties ' + computerSelection + '!';
-        playerTies++;
-    } else if (playerSelection === "Rock" && computerSelection === "Paper") {
-        outcomeMessage.textContent = 'You Lose... Paper covers Rock...';
-        playerLosses++;   
-    } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-        outcomeMessage.textContent = 'You Win! Rock smashes Scissors!';
-        playerWins++;
-    } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-        outcomeMessage.textContent = 'You Win! Paper covers Rock!';
-        playerWins++;
-    } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-        outcomeMessage.textContent = 'You Lose... Scissors cut Paper...';
-        playerLosses++;
-    } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-        outcomeMessage.textContent = 'You Lose... Rock smashes Scissors...';
-        playerLosses++;
-    } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-        outcomeMessage.textContent = 'You Win! Scissors cut Paper!';
-        playerWins++;
+    if (roundsRemaining >= 0) {
+
+        if (playerSelection === computerSelection) {
+            outcomeMessage.textContent = 'It\'s a Tie! ' + playerSelection + ' ties ' + computerSelection + '!';
+            playerTies++;
+        } else if (playerSelection === "Rock" && computerSelection === "Paper") {
+            outcomeMessage.textContent = 'You Lose... Paper covers Rock...';
+            playerLosses++;   
+        } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
+            outcomeMessage.textContent = 'You Win! Rock smashes Scissors!';
+            playerWins++;
+        } else if (playerSelection === "Paper" && computerSelection === "Rock") {
+            outcomeMessage.textContent = 'You Win! Paper covers Rock!';
+            playerWins++;
+        } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+            outcomeMessage.textContent = 'You Lose... Scissors cut Paper...';
+            playerLosses++;
+        } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
+            outcomeMessage.textContent = 'You Lose... Rock smashes Scissors...';
+            playerLosses++;
+        } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
+            outcomeMessage.textContent = 'You Win! Scissors cut Paper!';
+            playerWins++;
+        }
     }
 
     if (roundsRemaining > 0) {
@@ -57,7 +60,7 @@ function playRound(playerSelection, computerSelection) {
         roundsLeft.textContent = roundsRemaining;
     }
 
-    if (roundsRemaining <= 0) {
+    if (roundsRemaining === 0) {
         if (playerWins > playerLosses) {
             outcomeMessage.textContent = 'You Win!!!';
         } else if (playerWins < playerLosses) {
