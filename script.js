@@ -54,13 +54,27 @@ function playRound(playerSelection, computerSelection) {
         playerWins++;
     }
 
-    changePicture(playerImage, playerSelection);
-    changePicture(computerImage, computerSelection);
+    if (roundsRemaining > 0) {
+        changePicture(playerImage, playerSelection);
+        changePicture(computerImage, computerSelection);
 
-    changeRecord(playerWins, playerLosses, playerTies);
+        changeRecord(playerWins, playerLosses, playerTies);
+    
+        roundsRemaining--;
+        roundsLeft.textContent = roundsRemaining;
+    }
 
-    roundsRemaining--;
-    roundsLeft.textContent = roundsRemaining;
+    if (roundsRemaining <= 0) {
+        if (playerWins > playerLosses) {
+            outcomeMessage.textContent = 'You Win!!!';
+        } else if (playerWins < playerLosses) {
+            outcomeMessage.textContent = 'You Lose...';
+        } else {
+            outcomeMessage.textContent = 'It\'s a Tie.';
+        }
+
+        faceoffMessage.textContent = 'Game Over!';
+    }
 }
 
 // changePicture changes the picture, duh, based on the player/computer choice when a button is clicked
@@ -106,6 +120,7 @@ const computerWins = document.querySelector('#computer-wins');
 const computerLosses = document.querySelector('#computer-losses');
 const computerTies = document.querySelector('#computer-ties');
 const outcomeMessage = document.querySelector('#outcome-message');
+const faceoffMessage = document.querySelector('#faceoff-message');
 const playerImage = document.querySelector('#your-img');
 const computerImage = document.querySelector('#computer-img');
 const rockBtn = document.querySelector('#rock');
